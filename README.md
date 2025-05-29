@@ -48,6 +48,13 @@ go install github.com/allquixotic/namecheap-domain-export@latest
 
 Configure using environment variables or command-line flags:
 
+### Secure Credential Management
+
+For production use, we recommend using **dotenvx** for secure credential management. See [DOTENVX_SETUP.md](DOTENVX_SETUP.md) for detailed instructions on:
+- Encrypting your credentials
+- Managing different configurations (direct API vs filter proxy)
+- Production deployment best practices
+
 ### Environment Variables
 
 | Variable | Description | Default |
@@ -204,17 +211,14 @@ Error: API returned error 2011330: Domain not found in your account
 
 ```
 namecheap-domain-export/
-├── main.go           # CLI entry point
-├── api/              # Namecheap API client
-├── export/           # Zone file generation
-├── formats/          # Output format handlers
-└── cmd/              # Command implementations
-```
-
-### Running Tests
-
-```bash
-go test ./...
+├── main.go                 # CLI entry point and implementation
+├── go.mod                  # Go module definition
+├── go.sum                  # Go module checksums
+├── README.md               # This documentation
+├── DOTENVX_SETUP.md       # Secure credential management guide
+├── CLAUDE.md              # Project specifications
+├── LICENSE                # MIT License
+└── namecheap-domain-export # Compiled binary
 ```
 
 ### Contributing
